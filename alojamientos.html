@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>SoporteTI | Procedimientos ALOJAMIENTOS</title>
+  <link rel="stylesheet" href="CSS/TI.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="SoporteTI, inicio" data-go="alojamientos">
+        <span class="brand-mark">ST</span>
+        <span><strong>SoporteTI</strong><small>Mesa de ayuda</small></span>
+      </a>
+
+      <div class="sidebar-label">MENÚ PRINCIPAL</div>
+      <nav class="side-nav" aria-label="Navegación principal">
+        <a href="#" class="nav-link active" data-view="alojamientos"><span class="nav-icon">📋</span>Procedimientos ALOJAMIENTOS</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span class="help-icon">?</span>
+          <strong>¿Necesitas ayuda?</strong>
+          <p>Consulta los pasos y entregables del manual operativo de alojamientos.</p>
+        </div>
+        <div class="sidebar-foot">SoporteTI <span>•</span> Procedimientos ALOJAMIENTOS</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PROCEDIMIENTOS OPERATIVOS</p>
+          <h1 id="page-title">ALOJAMIENTOS — Pasos y entregables</h1>
+        </div>
+      </header>
+
+      <section class="view active" id="alojamientos">
+        <div class="section-heading page-section-heading">
+          <div>
+            <h2>Procedimientos ALOJAMIENTOS</h2>
+            <p>Pasos, etapas y entregables del manual operativo de alojamientos.</p>
+          </div>
+        </div>
+        <section class="panel">
+          <div class="toolbar">
+            <label class="search-box"><span>⌕</span><input id="aloj-search" type="search" placeholder="Buscar etapa o paso..." autocomplete="off"></label>
+          </div>
+          <div id="alojamientos-grid" class="aloj-grid"></div>
+          <div class="panel-foot"><span id="aloj-count">0 pasos</span><span>Origen: ALOJAMIENTOS_Manual</span></div>
+        </section>
+      </section>
+
+      <footer class="main-footer"><span>© <span id="current-year"></span> SoporteTI</span><span>Mesa de ayuda · Gestión de solicitudes</span></footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script id="alojamientos-data" type="application/json"></script>
+
+  <script>
+    (function(){
+      var dataEl = document.getElementById('alojamientos-data');
+      var grid = document.getElementById('alojamientos-grid');
+      var searchInput = document.getElementById('aloj-search');
+      var countEl = document.getElementById('aloj-count');
+
+      function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+      function render(data, filter){
+        var f = (filter||'').toLowerCase();
+        grid.innerHTML = '';
+        var total = 0, shown = 0;
+        data.fases.forEach(function(fase){
+          total += fase.etapas.reduce(function(a,e){ return a + e.pasos.length; }, 0);
+          var faseHtml = '<div class="aloj-fase"><div class="aloj-fase-head" role="button" tabindex="0"><span class="aloj-fase-id">'+esc(fase.id)+'</span><span class="aloj-fase-title">'+esc(fase.title)+'</span><span class="aloj-fase-desc">'+esc(fase.description)+'</span><span class="aloj-fase-owner">'+esc(fase.owner)+'</span><span class="aloj-toggle">▼</span></div><div class="aloj-fase-body">';
+          var faseShown = 0;
+          fase.etapas.forEach(function(etapa){
+            var etapaHtml = '<div class="aloj-etapa"><div class="aloj-etapa-head" role="button" tabindex="0"><span class="aloj-etapa-id">'+esc(etapa.id)+'</span><span class="aloj-etapa-title">'+esc(etapa.title)+'</span><span class="aloj-toggle">▼</span></div><div class="aloj-etapa-body">';
+            var etapaShown = 0;
+            etapa.pasos.forEach(function(paso, pasoIndex){
+              var hay = esc((paso.titulo+' '+(paso.herramienta||'')+' '+(paso.acciones||[]).join(' ')+' '+(paso.por_que||'')+' '+(paso.verificar||'')+' '+(paso.decisión||''))).toLowerCase();
+              if(f && hay.indexOf(f)<0) return;
+              etapaShown++;
+              var accionesHtml = (paso.acciones||[]).map(function(a){return '<li>'+esc(a)+'</li>';}).join('');
+              etapaHtml += '<div class="aloj-paso"><div class="aloj-paso-head"><span class="aloj-paso-title">'+esc(paso.titulo)+'</span><span class="aloj-paso-tool">'+esc(paso.herramienta||'')+'</span><div class="aloj-paso-actions"><button type="button" class="secondary-button paso-edit" data-paso-index="'+pasoIndex+'" title="Editar paso">Editar</button><button type="button" class="secondary-button paso-delete" data-paso-index="'+pasoIndex+'" title="Eliminar paso">Eliminar</button></div></div><div class="aloj-paso-body"><ul class="aloj-acciones">'+accionesHtml+'</ul><p class="aloj-porque"><strong>Por qué:</strong> '+esc(paso.por_que||'')+'</p><p class="aloj-verificar"><strong>Verificar:</strong> '+esc(paso.verificar||'')+'</p>'+(paso.decisión?'<p class="aloj-decision"><strong>Decisión:</strong> '+esc(paso.decisión)+'</p>':'')+'</div></div>';
+            });
+            etapaHtml += '</div></div>';
+            if(etapaShown||!f){ faseHtml += etapaHtml; faseShown += etapaShown; }
+          });
+          faseHtml += '</div></div>';
+          if(faseShown||!f){ grid.innerHTML += faseHtml; shown += faseShown; }
+        });
+        countEl.textContent = total + ' pasos totales' + (f ? ' (' + shown + ' coinciden)' : '');
+      }
+
+      function toggle(el){
+        var body = el.nextElementSibling;
+        var arrow = el.querySelector('.aloj-toggle');
+        if(!body) return;
+        var open = body.style.display === 'block';
+        body.style.display = open ? 'none' : 'block';
+        if(arrow) arrow.textContent = open ? '▶' : '▼';
+      }
+
+      function toast(message){
+        var el = document.getElementById('toast');
+        if(!el) return;
+        el.textContent = message;
+        el.classList.add('show');
+        setTimeout(function(){ el.classList.remove('show'); }, 3000);
+      }
+
+      // Cargar datos desde JSON externo (misma carpeta, servido por XAMPP)
+      fetch('alojamientos_datos.json')
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          var all = 0;
+          data.fases.forEach(function(f){ f.etapas.forEach(function(e){ all += e.pasos.length; }); });
+          countEl.textContent = all + ' pasos totales';
+          render(data);
+          grid.addEventListener('click', function(e){
+            var head = e.target.closest('.aloj-fase-head, .aloj-etapa-head');
+            if(head){ toggle(head); return; }
+            var btn = e.target.closest('.paso-edit, .paso-delete');
+            if(btn){
+              var idx = btn.getAttribute('data-paso-index');
+              var paso = btn.closest('.aloj-paso');
+              var titulo = paso.querySelector('.aloj-paso-title').textContent.trim();
+              if(btn.classList.contains('paso-edit')){
+                toast('Editar paso: '+titulo+' (pendiente de backend)');
+              } else if(btn.classList.contains('paso-delete')){
+                if(confirm('¿Eliminar el paso "'+titulo+'"?')){
+                  paso.style.display = 'none';
+                  toast('Paso eliminado: '+titulo);
+                }
+              }
+            }
+          });
+          grid.addEventListener('keydown', function(e){
+            if(e.key === 'Enter' || e.key === ' '){
+              var head = e.target.closest('.aloj-fase-head, .aloj-etapa-head');
+              if(head){ e.preventDefault(); toggle(head); }
+            }
+          });
+          searchInput.addEventListener('input', function(){ render(data, searchInput.value); });
+        })
+        .catch(function(err){
+          grid.innerHTML = '<div style="padding:16px;color:#d64c58;">No se pudieron cargar los datos: '+esc(err.message)+'</div>';
+        });
+
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

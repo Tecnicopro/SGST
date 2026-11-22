@@ -1,0 +1,205 @@
+# RESUMEN — PROCEDIMIENTOS ALOJAMIENTOS
+
+_Fuente: ALOJAMIENTOS_Manual (integrados a index.html)_
+
+---
+
+### Fase 01 — Gestión comercial y atención inicial
+Desde el primer correo hasta la reunión de descubrimiento
+
+- **01.01 Recepción y registro de la solicitud comercial**
+    - Leer y comprender el correo recibido (Correo empresarial)
+    - Registrar la oportunidad ALO-COM-001 (Google Drive / registro documental)
+    - Comprobar si la solicitud tiene información mínima (Registro comercial)
+    - Abrir expediente temporal controlado (Explorador de archivos / Google Drive)
+- **01.02 Evaluación preliminar de la oportunidad**
+    - Revisar compatibilidad con los servicios (Registro de oportunidades)
+    - Comparar opciones y registrar una decisión (Registro ALO-DEC-001)
+- **01.03 Respuesta formal al cliente**
+    - Preparar respuesta comercial (Gmail)
+    - Enviar y verificar la comunicación (Gmail)
+- **01.04 Asignación del responsable de análisis**
+    - Asignar el responsable de descubrimiento (Correo interno / registro de asignaciones)
+    - Coordinar la participación técnica (Comunicación interna)
+- **01.05 Preparación y convocatoria de la primera reunión**
+    - Preparar la agenda de 45 minutos (Google Docs)
+    - Preparar preguntas de descubrimiento (Google Docs)
+    - Convocar la reunión (Google Calendar / Google Meet)
+- **01.06 Apertura del expediente empresarial**
+    - Crear estructura documental (Google Drive)
+    - Registrar versiones y estados (Google Sheets o Google Docs)
+- **01.07 Verificación y cierre de la fase inicial**
+    - Revisar las evidencias de la fase (Expediente comercial)
+    - Autorizar avance al descubrimiento (Registro de control de fase)
+### Fase 02 — Descubrimiento, requisitos y contratación
+Del descubrimiento de necesidades a la cotización, cronograma y contratación
+
+- **02.01 Entrevista de descubrimiento**
+    - Confirmar reunión, interlocutores y autorización (Calendar y expediente)
+    - Conducir preguntas sin adelantar funcionalidades (Entrevista guiada)
+    - Registrar puntos inciertos y siguiente conversación (Listado de pendientes)
+    - Confirmar lo observado y lo pendiente (Minuta de entrevista)
+- **02.02 Acta y acuerdos de reunión**
+    - Elaborar acta ALO-REU-002 (Google Docs)
+    - Solicitar confirmación y controlar cambios (Correo y control documental)
+    - Emitir acta controlada (Correo / registro de documentos)
+- **02.03 Procesos actuales y actores**
+    - Levantar mapa del proceso actual (draw.io y entrevistas)
+    - Construir inventario de actores y permisos (Tabla de roles)
+- **02.04 Problemas y objetivos del negocio**
+    - Formular problemas con evidencia (Análisis causal)
+    - Definir objetivo y límites iniciales (Documento de alcance)
+- **02.05 Requisitos y reglas de negocio**
+    - Registrar requisitos con identificadores estables (Catálogo ALO-REQ)
+    - Validar escenarios con usuarios (Taller de revisión)
+    - Construir matriz de requisitos y fuentes (Google Sheets / registro de requisitos)
+- **02.06 Requisitos de calidad y restricciones**
+    - Distinguir dato, validación y política (Documento RN)
+    - Formalizar relaciones y permisos (Matriz RN / RF)
+- **02.07 Modelos, alcance y validación**
+    - Identificar escenarios de calidad (Escenarios RNO)
+    - Registrar restricciones y dependencias (Documento de restricciones)
+    - Establecer puerta de validación de requisitos (Comité cliente / Dirección)
+- **02.08 Modelos de negocio y alcance aprobado**
+    - Modelar casos de uso y flujo futuro (draw.io)
+    - Preparar línea base preliminar (Documento ALO-ALC-001)
+    - Aplicar control de puerta G1 (Registro ALO-G1)
+- **02.09 Análisis de viabilidad y riesgos**
+    - Analizar viabilidad y alternativas (Informe técnico/comercial)
+    - Crear matriz de riesgos y mitigaciones (ALO-RIE-001)
+- **02.10 Estimación, cotización y cronograma**
+    - Descomponer alcance y estimar horas (WBS y hoja de cálculo)
+    - Justificar cada hora mediante paquetes de trabajo (Hoja de estimación ALO-EST-001)
+    - Calcular cotización ALO-COT-001 (Hoja de cálculo y propuesta)
+    - Preparar cronograma por hitos (ALO-CRON-001)
+- **02.11 Propuesta, negociación y contratación**
+    - Presentar propuesta y condiciones (Dirección / ALO-PROP-001)
+    - Gestionar preguntas y negociación (Registro de observaciones)
+    - Formalizar autorización del proyecto (Contrato / orden de servicio)
+    - Emitir registro de autorización o no autorización (Acta comercial ALO-AUT-001)
+### Fase 03 — Scrum, arquitectura y diseño
+Jira, decisiones técnicas, diagramas y prototipos
+
+- **03.01 Equipo y responsabilidades Scrum**
+    - Nombrar funciones y autoridades (Matriz RACI)
+    - Establecer acuerdos de equipo (Acta interna)
+- **03.02 Objetivo de producto y planificación**
+    - Redactar objetivo de producto (Visión de producto)
+    - Planificar capacidad real (Calendario del equipo)
+- **03.03 Proyecto Jira, tablero Scrum y límites WIP**
+    - Revisar proyecto Jira existente (Jira Cloud)
+    - Configurar flujo y campos necesarios (Jira / configuración autorizada)
+    - Configurar Kanban y límite WIP en Jira (Jira Cloud, tablero SCRUM)
+- **03.04 Épicas, historias, criterios y backlog**
+    - Crear épicas por dominios y trabajo transversal (Jira / Backlog)
+    - Introducir historias y aceptación (Jira / creación de Story)
+- **03.05 Refinamiento, priorización y acuerdos**
+    - Refinar historias con el PO (Refinamiento Jira)
+    - Estimar y revisar capacidad (Planning poker / consenso)
+- **03.06 Acuerdos de colaboración, DoR y DoD**
+    - Definir acuerdos de colaboración (Documento DoR / DoD)
+    - Establecer reglas de ramas y revisión (GitHub / acuerdo de equipo)
+- **03.07 Plataforma computacional y contexto del sistema**
+    - Evaluar contexto computacional (Ficha de infraestructura)
+    - Preparar diagrama de contexto C4 (draw.io)
+    - Dimensionar capacidad inicial y registrar hipótesis (Hoja de capacidad ALO-CAP-001)
+- **03.08 Atributos y escenarios de calidad**
+    - Definir escenarios concretos de calidad (Calidad arquitectónicamente significativa)
+    - Contrastar tradeoffs (Registro de análisis)
+- **03.09 Análisis de alternativas y ADR**
+    - Comparar arquitecturas posibles (Análisis de alternativas)
+    - Documentar elecciones y consecuencias (ALO-ADR-001 / ALO-ADR-002)
+    - Evaluar conectores y asincronía (ADR-002 / matriz de alternativas)
+- **03.10 Módulos, capas y contratos API**
+    - Establecer módulos y dependencias (Diseño modular)
+    - Diseñar contratos y errores (API REST)
+    - Separar capas y responsabilidades SOLID (Revisión de diseño)
+- **03.11 Diagramas UML y C4**
+    - Crear diagramas C4 de contenedores y componentes (draw.io)
+    - Elaborar UML pertinente (draw.io)
+- **03.12 Modelo de datos y seguridad**
+    - Definir modelo relacional (Modelo lógico)
+    - Definir autenticación y contratos de datos (Contrato API / seguridad)
+- **03.13 Prototipos y revisión de interfaces**
+    - Preparar prototipos de tareas principales (Penpot)
+    - Revisar accesibilidad y consistencia (Lista de verificación UI)
+- **03.14 Infraestructura física y opciones de nube**
+    - Comparar ubicación de componentes (Diagrama de despliegue)
+    - Revisar capacidad y costos de nube (Ficha de sizing)
+    - Definir despliegue lógico y restricciones físicas (C4 despliegue / registro ALO-INF-001)
+- **03.15 Revisión y aprobación de arquitectura**
+    - Hacer revisión formal de línea base (Revisión de arquitectura)
+    - Autorizar construcción y controlar cambios (Acta de puerta G2)
+### Fase 04 — Preparación técnica
+Repositorio, dependencias, ambientes y Docker
+
+- **04.01 Herramientas y accesos**
+    - Comprobar estación de trabajo y requisitos (Windows / PowerShell)
+    - Preparar accesos según menor privilegio (Cuentas de herramientas)
+- **04.02 Git y GitHub: repositorio y permisos**
+    - Inspeccionar repositorio oficial (GitHub / navegador)
+    - Clonar solo después de revisar (PowerShell)
+    - Preparar repositorio vacío sin asumir archivos (PowerShell / GitHub)
+- **04.03 Convenciones de ramas y revisiones**
+    - Elegir ramas y permisos de revisión (GitHub Settings / Branches)
+    - Practicar flujo de PR sin código de negocio (Git CLI / GitHub)
+- **04.04 Estructura del proyecto**
+    - Instalar estructura reproducible (Carpeta codigo/ del paquete)
+    - Registrar el mapa de carpetas (VS Code / README)
+- **04.05 Backend Flask y MySQL**
+    - Comprobar aplicación Flask y dependencias (backend/ y Docker)
+    - Ejecutar pruebas de API en contenedor (Docker Compose / pytest)
+    - Comprobar versionamiento de esquema (Flask-Migrate / Alembic)
+- **04.06 Frontend Vite y Bootstrap**
+    - Revisar frontend Vite y estructura de interfaz (frontend/package.json / VS Code)
+    - Construir frontend y revisar errores (Node / Docker)
+- **04.07 Docker y variables de entorno**
+    - Preparar parámetros y archivos secretos (Docker Compose / .env)
+    - Inicializar entorno local y usuario administrador (Docker Compose)
+- **04.08 Pruebas iniciales y línea base**
+    - Verificar rutas y validaciones principales (Postman o curl / navegador)
+    - Fijar baseline técnica y resolver pendientes (GitHub / informe)
+    - Ejecutar pruebas de interfaz con Playwright (PowerShell / Node / Playwright)
+### Fase 05 — Desarrollo incremental
+Tickets, IA asistente, Sprints, PR y cambios
+
+- **05.01 Sprint Planning y selección de trabajo**
+    - Establecer objetivo y capacidad del Sprint (Jira Backlog / Sprint Planning)
+    - Dividir historias en tareas técnicas (Jira / planificación)
+- **05.02 Tarjetas Jira e instrucciones para IA**
+    - Crear tarjeta Jira de implementación (Jira / Story y subtareas)
+    - Formular una instrucción a la IA sin acceso externo (IA elegida por profesional)
+- **05.03 Ramas y desarrollo paralelo**
+    - Crear rama de historia y sincronizar (Git / PowerShell)
+    - Coordinar integración temprana (Jira / GitHub)
+- **05.04 Implementación de Usuarios**
+    - Preparar identidad y roles (backend/app/models.py)
+    - Implementar login y control de acceso (backend/app/domains/usuarios/routes.py y service.py)
+    - Revisar seguridad pendiente antes de producción (Checklist de endurecimiento)
+- **05.05 Implementación de Alojamientos**
+    - Crear entidades y endpoints del catálogo (backend/app/models.py y routes.py)
+    - Ejecutar historia y comprobar respuestas (Postman / pytest)
+- **05.06 Implementación de Comodidades**
+    - Implementar catálogo de comodidades (Modelos / API)
+    - Relacionar comodidad con alojamiento (SQLAlchemy / pruebas)
+- **05.07 Frontend e integración**
+    - Construir pantallas y navegación (frontend/src/main.js)
+    - Ejecutar pruebas integradas de usuario (Navegador / API)
+- **05.08 Pruebas durante el Sprint**
+    - Crear pruebas automáticas y escenarios manuales (pytest / Postman)
+    - Probar datos frontera y errores (API / matriz de pruebas)
+- **05.09 Pull Requests y Code Review**
+    - Preparar commit y PR pequeños (GitHub / Git)
+    - Revisar y corregir hallazgos (GitHub / Code Review)
+- **05.10 Conflictos, integración y trazabilidad**
+    - Diagnosticar conflicto entre ramas (Git CLI / VS Code)
+    - Comprobar regresión antes de integrar (pytest / GitHub)
+    - Resolver conflicto real con registro de ambas decisiones (Git / VS Code / ticket de integración)
+- **05.11 Daily, Review y Retrospective**
+    - Registrar Daily y bloqueos (Jira / reunión breve)
+    - Realizar Sprint Review (Demostración / acta)
+    - Realizar retrospectiva accionable (Acta del equipo)
+- **05.12 Solicitudes de cambio y replanificación**
+    - Recibir nueva petición y registrar ALO-CHG-001 (Solicitud formal)
+    - Evaluar alternativas, costo y autorización (PO / Dirección / Arquitectura)
+    - Pasar cambio autorizado a una nueva línea base (Change Control / Jira / Git)

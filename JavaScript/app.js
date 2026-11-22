@@ -564,7 +564,7 @@
 
       try {
         await api(
-          `delete_tickets.php?id=${encodeURIComponent(id)}`,
+          `ticket-delete.php?id=${encodeURIComponent(id)}`,
           {
             method: "DELETE"
           }
